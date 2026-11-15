@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gold AI Lebanon</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#0b1220;color:white;
+ font-family:Arial,sans-serif;padding:18px
+}
+header{text-align:center;color:#f4c95d}
+h1{margin-bottom:5px}
+.subtitle{color:#aab5c5;font-size:13px}
+.card{
+ background:#172337;border-radius:16px;
+ padding:18px;margin:15px 0;
+ border:1px solid #293a50
+}
+.price{font-size:36px;color:#f4c95d;
+ font-weight:bold;text-align:center;margin:15px}
+.muted{text-align:center;color:#aab5c5;font-size:12px}
+.buttons{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+button{
+ border:0;border-radius:10px;padding:14px;
+ font-size:16px;font-weight:bold;cursor:pointer
+}
+.buy{background:#176b50;color:white}
+.sell{background:#963b43;color:white}
+.wait{background:#d4a943;color:#111;width:100%}
+select{
+ background:#25354b;color:white;padding:12px;
+ border:0;border-radius:9px;width:100%;font-size:15px
+}
+.result{text-align:center;font-size:21px;
+ color:#f4c95d;margin:15px}
+footer{text-align:center;color:#8493a8;font-size:12px}
+</style>
+</head>
+<body>
+
+<header>
+<h1>🥇 GOLD AI LEBANON</h1>
+<div class="subtitle">XAU/USD SMART ANALYZER</div>
+</header>
+
+<div class="card">
+<div class="muted">سعر الذهب</div>
+<div class="price" id="price">--</div>
+<div class="muted">بانتظار ربط مصدر الأسعار المباشر</div>
+</div>
+
+<div class="card">
+<h3>📊 اختيار الفريم</h3>
+<select id="timeframe">
+<option>M1</option>
+<option>M5</option>
+<option>M15</option>
+<option>M30</option>
+</select>
+</div>
+
+<div class="card">
+<h3>🤖 تحليل الذهب</h3>
+<div class="muted">حالة التحليل</div>
+<div class="result" id="signal">بانتظار البيانات</div>
+<button class="wait" onclick="analyze()">بدء التحليل</button>
+<p class="muted" id="details">
+يجب ربط بيانات السوق أولاً للحصول على إشارات حقيقية.
+</p>
+</div>
+
+<div class="card">
+<h3>🎯 إدارة الصفقة</h3>
+<p>وقف الخسارة: <span id="sl">--</span></p>
+<p>جني الأرباح: <span id="tp">--</span></p>
+<p class="muted">ستظهر المستويات بعد ربط بيانات السوق.</p>
+</div>
+
+<div class="card">
+<h3>📰 الأخبار الاقتصادية</h3>
+<div class="muted">سيتم ربط الأخبار وتحليل تأثيرها على الذهب في المرحلة القادمة.</div>
+</div>
+
+<footer>
+GOLD AI LEBANON © 2026
+<br>أداة تحليل تعليمية وليست ضماناً للربح
+</footer>
+
+<script>
+function analyze(){
+ document.getElementById("signal").innerText="انتظار البيانات";
+ document.getElementById("details").innerText=
+ "لم يتم ربط مصدر أسعار السوق بعد. لا توجد توصية شراء أو بيع حالياً.";
+}
+</script>
+
+</body>
+</html>
