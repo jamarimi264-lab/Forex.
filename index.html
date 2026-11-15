@@ -89,7 +89,44 @@ GOLD AI LEBANON © 2026
 <br>أداة تحليل تعليمية وليست ضماناً للربح
 </footer>
 
-<script>
+<
+async function updateGoldPrice() {
+  const priceElement = document.getElementById("price");
+  const statusElement = priceElement.nextElementSibling;
+
+  try {
+    const response = await fetch(
+      "https://xaus.com/api/v1/spot"
+    );
+
+    if (!response.ok) throw new Error("API error");
+
+    const data = await response.json();
+    const price = data.spot_usd_oz || data.xau?.price;
+
+    if (!price) throw new Error("Price unavailable");
+
+    priceElement.innerText =
+      "$" + Number(price).toLocaleString("en-US", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+
+    statusElement.innerText =
+      data.data_state?.status === "stale"
+        ? "السعر السابق - غير محدّث حالياً"
+        : "سعر الذهب XAU/USD - آخر تحديث: " +
+          new Date(data.updated_at || Date.now()).toLocaleTimeString();
+
+  } catch (error) {
+    statusElement.innerText =
+      "تعذّر جلب السعر. حاول مجدداً.";
+  }
+}
+
+updateGoldPrice();
+setInterval(updateGoldPrice, 60000);
+>
 function analyze(){
  document.getElementById("signal").innerText="انتظار البيانات";
  document.getElementById("details").innerText=
